@@ -4,25 +4,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fund My Project!</title>
+  <title>The Tech Blog</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-  <h1>The Tech Blog</h1>
-
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <nav>
-        
-        <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button class="no-button" id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+        <ul>
+          <li>
+            <h2 href="/">Home</h2>
+          </li>
+          {{#if logged_in}}
+          <li>
+            <h2 href="/dashboard">Dashboard</h2>
+          </li>
+          <li>
+            <h2 id="logout">Logout</h2>
+          </li>
+          {{else}}
+          <li>
+            <h2 href="/login">Dashboard</h2>
+          </li>
+          <li>
+            <h2 href="/login">login</h2>
+          </li>
+          {{/if}}
+        </ul>
       </nav>
     </header>
     <main class="container container-fluid mt-5">
