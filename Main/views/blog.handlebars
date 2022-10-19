@@ -1,11 +1,26 @@
 <div class="text-center">
-  <h2>{{name}}</h2>
-  <p>{{{get_emoji}}}</p>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
-  <p>
-    <span for="img" aria-label="money">💲</span>
-    <span class="dollar-amount">{{format_amount needed_funding}}</span>
-    needed
-  </p>
+  <h2>{{title}}</h2>
+  <p>Posted by {{user.name}} on {{format_date date_created}}</p>
+  <p>{{content}}</p>
 </div>
+
+<button id="add-new-comment-btn" class="show">Add New Comment</button>
+
+<div>
+  <div>
+    <textarea id="new-comment-input" placeholder="Enter your comment here" class="hide"></textarea>
+  </div>
+  <button id="comment-add" class="hide">Post</button>
+</div>
+
+
+{{#if comments.length}}
+{{#each comments as |comment|}}
+<div>
+  <p>Posted by {{comment.user.username}} on {{format_date comment.date_created}}</p>
+  <p>{{comment.content}}</p>
+  <br>
+</div>
+
+{{/each}}
+{{/if}}
